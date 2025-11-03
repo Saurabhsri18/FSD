@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Interactive Mark System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+        }
+        .grade {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption><h2>Interactive Student Marks System</h2></caption>
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Subject</th>
+            <th>Marks Obtained</th>
+            <th>Total Marks</th>
+            <th>Percentage (%)</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Rahul</td>
+            <td>Mathematics</td>
+            <td><input type="number" min="0" max="100" value="85" class="marks" /></td>
+            <td><input type="number" min="1" max="100" value="100" class="total" /></td>
+            <td class="percentage">85</td>
+            <td class="grade">B</td>
+        </tr>
+        <tr>
+            <td>Priya</td>
+            <td>Physics</td>
+            <td><input type="number" min="0" max="100" value="92" class="marks" /></td>
+            <td><input type="number" min="1" max="100" value="100" class="total" /></td>
+            <td class="percentage">92</td>
+            <td class="grade">A</td>
+        </tr>
+        <tr>
+            <td>Ankit</td>
+            <td>Chemistry</td>
+            <td><input type="number" min="0" max="100" value="78" class="marks" /></td>
+            <td><input type="number" min="1" max="100" value="100" class="total" /></td>
+            <td class="percentage">78</td>
+            <td class="grade">C</td>
+        </tr>
+        <tr>
+            <td>Sonal</td>
+            <td>Biology</td>
+            <td><input type="number" min="0" max="100" value="88" class="marks" /></td>
+            <td><input type="number" min="1" max="100" value="100" class="total" /></td>
+            <td class="percentage">88</td>
+            <td class="grade">B</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function calculateGrades() {
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const marksInput = row.querySelector('.marks');
+            const totalInput = row.querySelector('.total');
+            const percentageCell = row.querySelector('.percentage');
+            const gradeCell = row.querySelector('.grade');
+
+            const marks = Number(marksInput.value);
+            const total = Number(totalInput.value);
+            const percentage = total > 0 ? ((marks / total) * 100).toFixed(2) : 0;
+
+            percentageCell.textContent = percentage;
+
+            let grade = 'F';
+            if (percentage >= 90) grade = 'A+';
+            else if (percentage >= 80) grade = 'A';
+            else if (percentage >= 70) grade = 'B';
+            else if (percentage >= 60) grade = 'C';
+            else if (percentage >= 50) grade = 'D';
+            else grade = 'F';
+
+            gradeCell.textContent = grade;
+        });
+    }
+
+    document.querySelectorAll('.marks, .total').forEach(input => {
+        input.addEventListener('input', calculateGrades);
+    });
+
+    // Initial calculation on page load
+    calculateGrades();
+</script>
+
+</body>
+</html>
