@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Amazon Replica</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">Amazon</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search" />
+            <button>Search</button>
+        </div>
+        <div class="cart">Cart (0)</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Electronics</li>
+            <li>Fashion</li>
+            <li>Electronics</li>
+            <li>Best Sellers</li>
+        </ul>
+    </nav>
+    
+    <section class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 1"/>
+            <h3>Product Name 1</h3>
+            <p>$29.99</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 2"/>
+            <h3>Product Name 2</h3>
+            <p>$49.99</p>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 3"/>
+            <h3>Product Name 3</h3>
+            <p>$15.99</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Amazon Clone. All rights reserved.</p>
+    </footer>
+</body>
+</html>
